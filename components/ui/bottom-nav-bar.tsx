@@ -17,8 +17,8 @@ export default function BottomNavBar() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-10">
-      <div className="max-w-md mx-auto bg-white border-t border-gray-200 shadow-lg">
-        <div className="flex justify-between items-center">
+      <div className="max-w-md mx-auto bg-white py-2 border-t  border-gray-200 shadow-lg">
+        <div className="flex justify-between items-center ">
           {navItems.map((item) => {
             const isActive =
               pathname === item.href ||
@@ -30,12 +30,12 @@ export default function BottomNavBar() {
                 key={item.name}
                 href={item.href}
                 className={`flex flex-col items-center py-2 flex-1 ${
-                  isActive ? "text-blue-600" : "text-gray-600"
+                  isActive ? "text-point" : "text-gray-600"
                 }`}
               >
                 <IconComponent
                   size={24}
-                  className={isActive ? "text-blue-600" : "text-gray-600"}
+                  className={isActive ? "text-point" : "text-gray-600"}
                 />
                 <span className="text-xs mt-1">{item.name}</span>
               </Link>

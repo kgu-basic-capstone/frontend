@@ -44,7 +44,7 @@ export default function Profile() {
             <p className="text-gray-600">kimmedipet@example.com</p>
             <Link
               href="/profile/edit"
-              className="mt-1 text-sm text-blue-600 flex items-center"
+              className="mt-1 text-sm text-point flex items-center"
             >
               프로필 수정
               <ChevronRight size={16} />
@@ -58,7 +58,7 @@ export default function Profile() {
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-bold text-lg">내 반려동물</h3>
           <button
-            className="text-blue-600 flex items-center text-sm"
+            className="text-point flex items-center text-sm"
             onClick={() => {
               // In a real app, this would open a form to add a new pet
               const newPet = {
