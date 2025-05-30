@@ -8,11 +8,19 @@ import BottomNavBar from "@/components/ui/bottom-nav-bar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "반려동물 건강관리를 한번에, 메디펫!",
-  description: "Track and manage your pet's health",
+  title: "MediPet",
+  description: "반려동물 건강관리를 한번에, 메디펫!",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
-const sora = Sora({ weight: "800" });
+const sora = Sora({
+  weight: "800",
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
