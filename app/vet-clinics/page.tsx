@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Map, List, Star, Clock, Calendar } from "lucide-react";
 import Image from "next/image";
+import MapView from "@/components/ui/map";
+import { cn } from "@/lib/utils";
 
 export default function VetClinics() {
   const [viewMode, setViewMode] = useState<"map" | "list">("map");
@@ -15,7 +17,7 @@ export default function VetClinics() {
       rating: 4.8,
       hours: "09:00 - 18:00",
       distance: "0.5km",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "/hospital-1.jpeg",
     },
     {
       id: 2,
@@ -24,7 +26,7 @@ export default function VetClinics() {
       rating: 4.5,
       hours: "10:00 - 19:00",
       distance: "1.2km",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "/hospital-2.jpeg",
     },
     {
       id: 3,
@@ -33,7 +35,7 @@ export default function VetClinics() {
       rating: 4.7,
       hours: "09:30 - 20:00",
       distance: "1.8km",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "/hospital-3.jpeg",
     },
   ];
 
@@ -68,23 +70,22 @@ export default function VetClinics() {
       {/* Content */}
       <div className="flex-1">
         {viewMode === "map" ? (
-          <div className="h-full bg-gray-200 flex items-center justify-center">
-            <div className="text-center p-4">
-              <Map size={48} className="mx-auto text-gray-400 mb-2" />
-              <p className="text-gray-500">
-                지도에서 주변 동물병원을 확인하세요
-              </p>
-            </div>
-          </div>
+          <MapView />
         ) : (
           <div className="p-4 space-y-4">
-            {clinics.map((clinic) => (
-              <div key={clinic.id} className="bg-white rounded-xl shadow p-4">
+            {clinics.map((clinic, index) => (
+              <div
+                key={clinic.id}
+                className={cn(
+                  index === clinics.length - 1 && "mb-4",
+                  "bg-white rounded-xl shadow p-4"
+                )}
+              >
                 <div className="flex">
                   <Image
                     src={clinic.image || "/placeholder.svg"}
                     alt={clinic.name}
-                    width={60}
+                    width={90}
                     height={60}
                     className="rounded-lg mr-3"
                   />
@@ -116,6 +117,7 @@ export default function VetClinics() {
                 </button>
               </div>
             ))}
+            <div className="h-200">gd</div>
           </div>
         )}
       </div>
