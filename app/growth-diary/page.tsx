@@ -22,28 +22,28 @@ export default function GrowthDiary() {
       date: "2024-04-20",
       weight: "5.2kg",
       note: "정기 검진 결과 건강 상태 양호. 피부 상태 호전됨.",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "/icon-report.webp",
     },
     {
       id: 2,
       date: "2024-04-12",
       weight: "5.1kg",
       note: "피부에 붉은 반점이 생겨 병원 방문. 알레르기 약 처방받음.",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "/icon-vaccine.webp",
     },
     {
       id: 3,
       date: "2024-04-05",
       weight: "5.0kg",
       note: "종합 백신 접종 완료. 특이사항 없음.",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "/icon-vaccine.webp",
     },
     {
       id: 4,
       date: "2024-03-28",
       weight: "4.9kg",
       note: "식욕 좋음. 활동량 증가.",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "/icon-report.webp",
     },
   ];
 
