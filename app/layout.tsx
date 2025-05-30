@@ -1,11 +1,9 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 import AppBar from "@/components/ui/app-bar";
 import BottomNavBar from "@/components/ui/bottom-nav-bar";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "MediPet",
@@ -29,10 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={inter.className}>
-        <div className="max-w-md mx-auto h-screen flex flex-col bg-gray-50">
+      <body>
+        <div className="mx-auto flex h-screen max-w-md flex-col bg-white">
           <AppBar font={sora} />
-          <main className="flex-1 overflow-y-auto pb-16">{children}</main>
+          <main className="flex-1 overflow-y-auto pb-[77px]">{children}</main>
           <BottomNavBar />
         </div>
       </body>
