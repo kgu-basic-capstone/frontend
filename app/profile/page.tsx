@@ -18,10 +18,10 @@ export default function Profile() {
   const [pets, setPets] = useState([
     {
       id: 1,
-      name: "멍멍이",
-      breed: "말티즈",
+      name: "또리",
+      breed: "시바견",
       age: "3세",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "/dog-profile.jpeg",
     },
   ]);
 
@@ -32,7 +32,7 @@ export default function Profile() {
         <div className="flex items-center">
           <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-blue-100">
             <Image
-              src="/placeholder.svg?height=80&width=80"
+              src="/placeholder-user.jpg"
               alt="User"
               width={80}
               height={80}

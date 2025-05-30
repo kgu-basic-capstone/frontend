@@ -13,15 +13,15 @@ export default function PetDetail({ params }: { params: { id: string } }) {
   // In a real app, you would fetch this data from an API
   const [pet, setPet] = useState({
     id: petId,
-    name: "멍멍이",
-    breed: "말티즈",
+    name: "또리",
+    breed: "시바견",
     age: "3세",
     birthdate: "2021년 4월 15일",
     weight: "5.2kg",
     gender: "남아",
     neutered: "완료",
     microchip: "123456789012345",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/dog-profile.jpeg",
   });
 
   return (

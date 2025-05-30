@@ -7,13 +7,13 @@ export default function Community() {
     {
       id: 1,
       user: {
-        name: "강아지맘",
-        avatar: "/placeholder.svg?height=40&width=40",
+        name: "룽지롱지맘",
+        avatar: "/placeholder-user.jpg",
       },
       time: "2시간 전",
       content:
-        "오늘 멍멍이가 새 장난감을 너무 좋아해요! 다른 분들은 어떤 장난감을 주시나요?",
-      image: "/placeholder.svg?height=200&width=400",
+        "룽지가 새 장난감을 너무 좋아해요~ 대형견 장난감 추천받을 수 있을까요?",
+      image: "/dog-toy.jpeg",
       likes: 24,
       comments: 8,
     },
@@ -21,7 +21,7 @@ export default function Community() {
       id: 2,
       user: {
         name: "고양이아빠",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar: "/placeholder-user.jpg",
       },
       time: "4시간 전",
       content:
@@ -33,13 +33,13 @@ export default function Community() {
     {
       id: 3,
       user: {
-        name: "동물사랑",
-        avatar: "/placeholder.svg?height=40&width=40",
+        name: "진돌이",
+        avatar: "/placeholder-user.jpg",
       },
       time: "어제",
       content:
         "주말에 반려동물 친구들과 함께하는 공원 산책 모임이 있어요! 관심 있으신 분들은 댓글 남겨주세요.",
-      image: "/placeholder.svg?height=200&width=400",
+      image: "/dog-walk.jpeg",
       likes: 42,
       comments: 18,
     },

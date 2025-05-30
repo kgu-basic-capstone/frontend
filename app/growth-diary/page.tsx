@@ -108,7 +108,7 @@ export default function GrowthDiary() {
       <div className="bg-white rounded-xl shadow p-4 flex items-center">
         <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4">
           <Image
-            src="/placeholder.svg?height=64&width=64"
+            src="/dog-profile.jpeg"
             alt="Pet"
             width={64}
             height={64}
@@ -116,7 +116,7 @@ export default function GrowthDiary() {
           />
         </div>
         <div>
-          <h2 className="text-lg font-bold">멍멍이</h2>
+          <h2 className="text-lg font-bold">또리</h2>
           <p className="text-gray-600">3년 2개월 (37개월)</p>
         </div>
       </div>

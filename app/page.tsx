@@ -10,7 +10,7 @@ export default function Home() {
         <div className="flex items-center space-x-4">
           <div className="relative w-20 h-20 rounded-full overflow-hidden">
             <Image
-              src="/placeholder.svg?height=80&width=80"
+              src="/dog-profile.jpeg"
               alt="Pet"
               width={80}
               height={80}
@@ -18,8 +18,8 @@ export default function Home() {
             />
           </div>
           <div>
-            <h2 className="text-xl font-bold">멍멍이</h2>
-            <p className="text-gray-600">말티즈 • 3세 • 5.2kg</p>
+            <h2 className="text-xl font-bold">또리</h2>
+            <p className="text-gray-600">시바견 • 3세 • 5.2kg</p>
             <div className="mt-1 flex items-center">
               <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>
               <span className="text-sm text-green-600">건강 상태 양호</span>
