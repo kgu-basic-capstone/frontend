@@ -26,11 +26,11 @@ export default function Profile() {
   ]);
 
   return (
-    <div className="p-4 space-y-6">
+    <div className="space-y-6 p-6 pt-2">
       {/* User Profile */}
-      <div className="bg-white rounded-xl shadow p-4">
+      <div className="rounded-xl bg-white p-4 shadow">
         <div className="flex items-center">
-          <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-blue-100">
+          <div className="relative h-20 w-20 overflow-hidden rounded-full border-4 border-blue-100">
             <Image
               src="/placeholder-user.jpg"
               alt="User"
@@ -44,7 +44,7 @@ export default function Profile() {
             <p className="text-gray-600">kimmedipet@example.com</p>
             <Link
               href="/profile/edit"
-              className="mt-1 text-sm text-point flex items-center"
+              className="mt-1 flex items-center text-sm text-point"
             >
               프로필 수정
               <ChevronRight size={16} />
@@ -54,11 +54,11 @@ export default function Profile() {
       </div>
 
       {/* My Pets */}
-      <div className="bg-white rounded-xl shadow p-4">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-bold text-lg">내 반려동물</h3>
+      <div className="rounded-xl bg-white p-4 shadow">
+        <div className="mb-4 flex items-center justify-between">
+          <h3 className="text-lg font-bold">내 반려동물</h3>
           <button
-            className="text-point flex items-center text-sm"
+            className="flex items-center text-sm text-point"
             onClick={() => {
               // In a real app, this would open a form to add a new pet
               const newPet = {
@@ -81,14 +81,14 @@ export default function Profile() {
             <Link
               href={`/profile/pet/${pet.id}`}
               key={pet.id}
-              className="flex items-center p-3 border border-gray-100 rounded-lg hover:bg-gray-50"
+              className="flex items-center rounded-lg border border-gray-100 p-3 hover:bg-gray-50"
             >
               <Image
                 src={pet.image || "/placeholder.svg"}
                 alt={pet.name}
                 width={60}
                 height={60}
-                className="rounded-full mr-3 border border-gray-200"
+                className="mr-3 rounded-full border border-gray-200"
               />
               <div className="flex-1">
                 <h4 className="font-medium">{pet.name}</h4>
@@ -103,8 +103,8 @@ export default function Profile() {
       </div>
 
       {/* Settings & Options */}
-      <div className="bg-white rounded-xl shadow">
-        <div className="p-4 border-b">
+      <div className="rounded-xl bg-white shadow">
+        <div className="border-b p-4">
           <h3 className="font-bold">설정 및 정보</h3>
         </div>
 
@@ -113,7 +113,7 @@ export default function Profile() {
             href="/profile/notifications"
             className="flex items-center p-4 hover:bg-gray-50"
           >
-            <Bell size={20} className="text-gray-600 mr-3" />
+            <Bell size={20} className="mr-3 text-gray-600" />
             <span className="flex-1">알림 설정</span>
             <ChevronRight size={20} className="text-gray-400" />
           </Link>
@@ -122,7 +122,7 @@ export default function Profile() {
             href="/profile/settings"
             className="flex items-center p-4 hover:bg-gray-50"
           >
-            <Settings size={20} className="text-gray-600 mr-3" />
+            <Settings size={20} className="mr-3 text-gray-600" />
             <span className="flex-1">앱 설정</span>
             <ChevronRight size={20} className="text-gray-400" />
           </Link>
@@ -131,13 +131,13 @@ export default function Profile() {
             href="/profile/favorites"
             className="flex items-center p-4 hover:bg-gray-50"
           >
-            <Heart size={20} className="text-gray-600 mr-3" />
+            <Heart size={20} className="mr-3 text-gray-600" />
             <span className="flex-1">즐겨찾기</span>
             <ChevronRight size={20} className="text-gray-400" />
           </Link>
 
           <Link href="/help" className="flex items-center p-4 hover:bg-gray-50">
-            <HelpCircle size={20} className="text-gray-600 mr-3" />
+            <HelpCircle size={20} className="mr-3 text-gray-600" />
             <span className="flex-1">도움말</span>
             <ChevronRight size={20} className="text-gray-400" />
           </Link>
@@ -146,12 +146,12 @@ export default function Profile() {
             href="/terms"
             className="flex items-center p-4 hover:bg-gray-50"
           >
-            <Shield size={20} className="text-gray-600 mr-3" />
+            <Shield size={20} className="mr-3 text-gray-600" />
             <span className="flex-1">이용정책</span>
             <ChevronRight size={20} className="text-gray-400" />
           </Link>
 
-          <button className="flex items-center p-4 w-full text-left hover:bg-gray-50 text-red-600">
+          <button className="flex w-full items-center p-4 text-left text-red-600 hover:bg-gray-50">
             <LogOut size={20} className="mr-3" />
             <span className="flex-1">로그아웃</span>
           </button>
@@ -159,7 +159,7 @@ export default function Profile() {
       </div>
 
       {/* App Version */}
-      <div className="text-center text-gray-500 text-sm">
+      <div className="text-center text-sm text-gray-500">
         <p>메디펫 v1.0.0</p>
       </div>
     </div>

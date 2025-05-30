@@ -26,9 +26,9 @@ export default function PetDetailClient({ id }: PetDetailClientProps) {
   };
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="flex h-full flex-col">
       {/* Header */}
-      <div className="p-4 bg-white border-b flex items-center justify-between">
+      <div className="flex items-center justify-between border-b bg-white p-6">
         <button onClick={() => router.back()} className="p-1">
           <ArrowLeft size={20} />
         </button>
@@ -37,10 +37,10 @@ export default function PetDetailClient({ id }: PetDetailClientProps) {
       </div>
 
       {/* Content */}
-      <div className="flex-1 p-4 overflow-y-auto">
-        <div className="bg-white rounded-xl shadow p-4 mb-6">
-          <div className="flex flex-col items-center mb-4">
-            <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-blue-100 mb-3">
+      <div className="flex-1 overflow-y-auto p-4">
+        <div className="mb-6 rounded-xl bg-white p-4 shadow">
+          <div className="mb-4 flex flex-col items-center">
+            <div className="relative mb-3 h-32 w-32 overflow-hidden rounded-full border-4 border-blue-100">
               <Image
                 src={pet.image || "/placeholder.svg"}
                 alt={pet.name}
@@ -82,11 +82,11 @@ export default function PetDetailClient({ id }: PetDetailClientProps) {
         </div>
 
         <div className="flex space-x-4">
-          <button className="flex-1 bg-blue-600 text-white py-3 rounded-lg flex items-center justify-center">
+          <button className="flex flex-1 items-center justify-center rounded-lg bg-blue-600 py-3 text-white">
             <Edit size={18} className="mr-2" />
             정보 수정
           </button>
-          <button className="flex-1 bg-red-100 text-red-600 py-3 rounded-lg flex items-center justify-center">
+          <button className="flex flex-1 items-center justify-center rounded-lg bg-red-100 py-3 text-red-600">
             <Trash2 size={18} className="mr-2" />
             삭제하기
           </button>

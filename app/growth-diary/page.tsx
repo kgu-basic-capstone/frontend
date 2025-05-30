@@ -49,13 +49,13 @@ export default function GrowthDiary() {
 
   const prevMonth = () => {
     setCurrentMonth(
-      new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1)
+      new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1),
     );
   };
 
   const nextMonth = () => {
     setCurrentMonth(
-      new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1)
+      new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1),
     );
   };
 
@@ -103,146 +103,147 @@ export default function GrowthDiary() {
   const dayNames = ["일", "월", "화", "수", "목", "금", "토"];
 
   return (
-    <div className="p-4 space-y-6">
-      {/* Pet Age Info */}
-      <div className="bg-white rounded-xl shadow p-4 flex items-center">
-        <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4">
-          <Image
-            src="/dog-profile.jpeg"
-            alt="Pet"
-            width={64}
-            height={64}
-            className="object-cover"
-          />
-        </div>
-        <div>
-          <h2 className="text-lg font-bold">또리</h2>
-          <p className="text-gray-600">3년 2개월 (37개월)</p>
-        </div>
+    <div className="flex flex-col">
+      <div className="sticky top-0 z-10 border-b-[1px] bg-white p-4 px-6">
+        <h1 className="text-xl font-bold">성장수첩</h1>
       </div>
-
-      {/* Calendar */}
-      <div className="bg-white rounded-xl shadow p-4">
-        <div className="flex justify-between items-center mb-4">
-          <button onClick={prevMonth} className="p-1">
-            <ChevronLeft size={20} />
-          </button>
-          <h3 className="font-bold">
-            {currentMonth.getFullYear()}년 {monthNames[currentMonth.getMonth()]}
-          </h3>
-          <button onClick={nextMonth} className="p-1">
-            <ChevronRight size={20} />
-          </button>
+      <div className="space-y-6 p-6">
+        <div className="flex items-center rounded-xl bg-white p-4 shadow">
+          <div className="relative mr-4 h-16 w-16 overflow-hidden rounded-full">
+            <Image
+              src="/dog-profile.jpeg"
+              alt="Pet"
+              width={64}
+              height={64}
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <h2 className="text-lg font-bold">또리</h2>
+            <p className="text-gray-600">3년 2개월 (37개월)</p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-7 gap-1 mb-2">
-          {dayNames.map((day, index) => (
-            <div key={index} className="text-center text-sm font-medium">
-              {day}
-            </div>
-          ))}
-        </div>
+        {/* Calendar */}
+        <div className="rounded-xl bg-white p-4 shadow">
+          <div className="mb-4 flex items-center justify-between">
+            <button onClick={prevMonth} className="p-1">
+              <ChevronLeft size={20} />
+            </button>
+            <h3 className="font-bold">
+              {currentMonth.getFullYear()}년{" "}
+              {monthNames[currentMonth.getMonth()]}
+            </h3>
+            <button onClick={nextMonth} className="p-1">
+              <ChevronRight size={20} />
+            </button>
+          </div>
 
-        <div className="grid grid-cols-7 gap-1">
-          {days.map((day, index) => {
-            // Check if this day has an event
-            const dateStr = day
-              ? `${currentMonth.getFullYear()}-${String(
-                  currentMonth.getMonth() + 1
-                ).padStart(2, "0")}-${String(day).padStart(2, "0")}`
-              : "";
-            const dayEvent = events.find((event) => event.date === dateStr);
+          <div className="mb-2 grid grid-cols-7 gap-1">
+            {dayNames.map((day, index) => (
+              <div key={index} className="text-center text-sm font-medium">
+                {day}
+              </div>
+            ))}
+          </div>
 
-            return (
-              <div
-                key={index}
-                className={`aspect-square flex flex-col items-center justify-center rounded-lg text-sm
-                  ${day ? "hover:bg-gray-100" : ""}
-                  ${dayEvent ? "relative" : ""}
-                `}
-              >
-                {day && (
-                  <>
-                    <span>{day}</span>
-                    {dayEvent && (
-                      <div
-                        className={`w-6 h-1 mt-1 rounded-full
-                          ${
+          <div className="grid grid-cols-7 gap-1">
+            {days.map((day, index) => {
+              // Check if this day has an event
+              const dateStr = day
+                ? `${currentMonth.getFullYear()}-${String(
+                    currentMonth.getMonth() + 1,
+                  ).padStart(2, "0")}-${String(day).padStart(2, "0")}`
+                : "";
+              const dayEvent = events.find((event) => event.date === dateStr);
+
+              return (
+                <div
+                  key={index}
+                  className={`flex aspect-square flex-col items-center justify-center rounded-lg text-sm ${day ? "hover:bg-gray-100" : ""} ${dayEvent ? "relative" : ""} `}
+                >
+                  {day && (
+                    <>
+                      <span>{day}</span>
+                      {dayEvent && (
+                        <div
+                          className={`mt-1 h-1 w-6 rounded-full ${
                             dayEvent.type === "vaccine"
                               ? "bg-blue-500"
                               : dayEvent.type === "sick"
-                              ? "bg-red-500"
-                              : "bg-green-500"
-                          }
-                        `}
-                      ></div>
-                    )}
-                  </>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="flex justify-center mt-3 space-x-4 text-xs">
-          <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-blue-500 mr-1"></div>
-            <span>백신 접종</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-red-500 mr-1"></div>
-            <span>질병</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-green-500 mr-1"></div>
-            <span>검진</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Growth Records */}
-      <div className="bg-white rounded-xl shadow p-4">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-bold">최근 성장 기록</h3>
-          <Link href="/growth-diary/all" className="text-sm text-blue-600">
-            전체보기
-          </Link>
-        </div>
-
-        <div className="space-y-3">
-          {growthRecords.map((record) => (
-            <div
-              key={record.id}
-              className="flex border-b border-gray-100 pb-3 last:border-0 last:pb-0"
-            >
-              <Image
-                src={record.image || "/placeholder.svg"}
-                alt="Growth record"
-                width={60}
-                height={60}
-                className="rounded-lg mr-3"
-              />
-              <div className="flex-1">
-                <div className="flex justify-between">
-                  <span className="font-medium">{record.date}</span>
-                  <span className="text-blue-600 font-medium">
-                    {record.weight}
-                  </span>
+                                ? "bg-red-500"
+                                : "bg-green-500"
+                          } `}
+                        ></div>
+                      )}
+                    </>
+                  )}
                 </div>
-                <p className="text-sm text-gray-600 mt-1">{record.note}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+              );
+            })}
+          </div>
 
-      {/* Add Record Button */}
-      <Link
-        href="/growth-diary/add"
-        className="fixed bottom-20 right-4 w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-lg"
-      >
-        <Plus size={24} className="text-white" />
-      </Link>
+          <div className="mt-3 flex justify-center space-x-4 text-xs">
+            <div className="flex items-center">
+              <div className="mr-1 h-3 w-3 rounded-full bg-blue-500"></div>
+              <span>백신 접종</span>
+            </div>
+            <div className="flex items-center">
+              <div className="mr-1 h-3 w-3 rounded-full bg-red-500"></div>
+              <span>질병</span>
+            </div>
+            <div className="flex items-center">
+              <div className="mr-1 h-3 w-3 rounded-full bg-green-500"></div>
+              <span>검진</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Growth Records */}
+        <div className="rounded-xl bg-white p-4 shadow">
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="font-bold">최근 성장 기록</h3>
+            <Link href="/growth-diary/all" className="text-sm text-blue-600">
+              전체보기
+            </Link>
+          </div>
+
+          <div className="space-y-3">
+            {growthRecords.map((record) => (
+              <div
+                key={record.id}
+                className="flex border-b border-gray-100 pb-3 last:border-0 last:pb-0"
+              >
+                <Image
+                  src={record.image || "/placeholder.svg"}
+                  alt="Growth record"
+                  width={60}
+                  height={60}
+                  className="mr-3 rounded-lg"
+                />
+                <div className="flex-1">
+                  <div className="flex justify-between">
+                    <span className="font-medium">{record.date}</span>
+                    <span className="font-medium text-blue-600">
+                      {record.weight}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-sm text-gray-600">{record.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Add Record Button */}
+        <Link
+          href="/growth-diary/add"
+          className="fixed bottom-20 right-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 shadow-lg"
+        >
+          <Plus size={24} className="text-white" />
+        </Link>
+      </div>
+      {/* Pet Age Info */}
     </div>
   );
 }

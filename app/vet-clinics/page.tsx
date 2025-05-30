@@ -40,14 +40,15 @@ export default function VetClinics() {
   ];
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="flex h-full flex-col">
       {/* Header */}
-      <div className="p-4 bg-white border-b">
+      <div className="sticky top-0 z-10 border-b-[1px] bg-white p-4 px-6">
         <h1 className="text-xl font-bold">주변 동물병원</h1>
-
-        <div className="flex mt-4 bg-gray-100 rounded-lg p-1">
+      </div>
+      <div className="border-b bg-white p-6">
+        <div className="flex rounded-lg bg-gray-100 p-1">
           <button
-            className={`flex-1 py-2 rounded-md flex justify-center items-center ${
+            className={`flex flex-1 items-center justify-center rounded-md py-2 ${
               viewMode === "map" ? "bg-white shadow" : ""
             }`}
             onClick={() => setViewMode("map")}
@@ -56,7 +57,7 @@ export default function VetClinics() {
             <span>지도</span>
           </button>
           <button
-            className={`flex-1 py-2 rounded-md flex justify-center items-center ${
+            className={`flex flex-1 items-center justify-center rounded-md py-2 ${
               viewMode === "list" ? "bg-white shadow" : ""
             }`}
             onClick={() => setViewMode("list")}
@@ -72,13 +73,13 @@ export default function VetClinics() {
         {viewMode === "map" ? (
           <MapView />
         ) : (
-          <div className="p-4 space-y-4">
+          <div className="space-y-4 p-4">
             {clinics.map((clinic, index) => (
               <div
                 key={clinic.id}
                 className={cn(
                   index === clinics.length - 1 && "mb-4",
-                  "bg-white rounded-xl shadow p-4"
+                  "rounded-xl bg-white p-4 shadow",
                 )}
               >
                 <div className="flex">
@@ -87,7 +88,7 @@ export default function VetClinics() {
                     alt={clinic.name}
                     width={90}
                     height={60}
-                    className="rounded-lg mr-3"
+                    className="mr-3 rounded-lg"
                   />
                   <div className="flex-1">
                     <div className="flex justify-between">
@@ -96,22 +97,22 @@ export default function VetClinics() {
                         {clinic.distance}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="mt-1 text-sm text-gray-600">
                       {clinic.address}
                     </p>
-                    <div className="flex items-center mt-1">
-                      <Star size={14} className="text-yellow-500 mr-1" />
+                    <div className="mt-1 flex items-center">
+                      <Star size={14} className="mr-1 text-yellow-500" />
                       <span className="text-sm">{clinic.rating}</span>
                     </div>
-                    <div className="flex items-center mt-1">
-                      <Clock size={14} className="text-gray-500 mr-1" />
+                    <div className="mt-1 flex items-center">
+                      <Clock size={14} className="mr-1 text-gray-500" />
                       <span className="text-sm text-gray-600">
                         {clinic.hours}
                       </span>
                     </div>
                   </div>
                 </div>
-                <button className="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg flex items-center justify-center">
+                <button className="mt-3 flex w-full items-center justify-center rounded-lg bg-blue-600 py-2 text-white">
                   <Calendar size={16} className="mr-1" />
                   예약하기
                 </button>

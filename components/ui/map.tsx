@@ -7,16 +7,16 @@ import dynamic from "next/dynamic";
 
 const MapContainer = dynamic(
   () => import("react-leaflet").then((mod) => mod.MapContainer),
-  { ssr: false }
+  { ssr: false },
 );
 const TileLayer = dynamic(
   () => import("react-leaflet").then((mod) => mod.TileLayer),
-  { ssr: false }
+  { ssr: false },
 );
 
 const Marker = dynamic(
   () => import("react-leaflet").then((mod) => mod.Marker),
-  { ssr: false }
+  { ssr: false },
 );
 
 // 대한민국 경계 좌표
@@ -61,7 +61,7 @@ export default function MapView() {
           iconAnchor: [12, 41],
           popupAnchor: [1, -34],
           shadowSize: [41, 41],
-        })
+        }),
       );
     });
   }, []);
@@ -75,7 +75,7 @@ export default function MapView() {
       center={position}
       zoom={7}
       scrollWheelZoom={true}
-      style={{ height: "97.5%", width: "100%" }}
+      style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
