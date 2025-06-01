@@ -37,7 +37,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 gap-3">
           <Link
-            href="/ai-diagnosis"
+            href="/ai-chat"
             className="z-10 flex flex-col items-center justify-center rounded-xl bg-white p-4 text-center shadow"
           >
             <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
