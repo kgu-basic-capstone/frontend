@@ -5,6 +5,7 @@ import { Map, List, Star, Clock, Calendar } from "lucide-react";
 import Image from "next/image";
 import MapView from "@/components/ui/map";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function VetClinics() {
   const [viewMode, setViewMode] = useState<"map" | "list">("map");
@@ -112,13 +113,15 @@ export default function VetClinics() {
                     </div>
                   </div>
                 </div>
-                <button className="mt-3 flex w-full items-center justify-center rounded-lg bg-blue-600 py-2 text-white">
+                <Link
+                  href={`/vet-clinics/${clinic.id}/reservation`}
+                  className="mt-3 flex w-full items-center justify-center rounded-lg bg-blue-600 py-2 text-white"
+                >
                   <Calendar size={16} className="mr-1" />
                   예약하기
-                </button>
+                </Link>
               </div>
             ))}
-            <div className="h-200">gd</div>
           </div>
         )}
       </div>
